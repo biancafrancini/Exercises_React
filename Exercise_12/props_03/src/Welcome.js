@@ -5,7 +5,7 @@ export class Welcome extends React.Component {
     return (
       <div>
         <p> Welcome, {this.props.name}! 😃</p>
-        <p> Your Age is: {this.props.age} 👍🏻</p>
+        <p> Your Age is: {this.props.age}</p>
         </div>
     );
   }
@@ -13,5 +13,5 @@ export class Welcome extends React.Component {
 
 Welcome.defaultProps = {
   name: 'Bianca',
-  age: 30,
+  age: 'unknown 🤷🏻‍♀️',
 }
