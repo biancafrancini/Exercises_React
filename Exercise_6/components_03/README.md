@@ -1,3 +1,7 @@
+# Exercise_6
+
+Write a class component called `App` that renders the `Hello` component within a `div` tag.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
