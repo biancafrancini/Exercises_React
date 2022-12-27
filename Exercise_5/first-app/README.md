@@ -1,3 +1,7 @@
+# Exercise_5
+
+Write a Hello class components that renders the "Hello, World!" message within an h1 tag.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
