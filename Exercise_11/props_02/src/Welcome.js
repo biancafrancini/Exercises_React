@@ -7,5 +7,5 @@ export class Welcome extends React.Component {
 }
 
 Welcome.defaultProps = {
-  name: 'Bianca',
+  name: 'You',
 }
