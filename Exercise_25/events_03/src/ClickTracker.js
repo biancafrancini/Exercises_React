@@ -1,27 +1,37 @@
 import React from "react";
 
-const $h1SayHello = document.querySelector("#h1");
-
 export class ClickTracker extends React.Component {
+  state = {
+    h1Text: "",
+  };
+
   handlerClicks = (event) => {
     let id = event.target.id;
     //console.log(event);
 
     switch (id) {
       case "1":
-        $h1SayHello.innerText = event.target.innerHTML;
+        this.setState({
+          h1Text: <h1>{event.target.innerHTML}</h1>,
+        });
         break;
 
       case "2":
-        $h1SayHello.innerText = event.target.innerHTML;
+        this.setState({
+          h1Text: <h1>{event.target.innerHTML}</h1>,
+        });
         break;
 
       case "3":
-        $h1SayHello.innerText = event.target.innerHTML;
+        this.setState({
+          h1Text: <h1>{event.target.innerHTML}</h1>,
+        });
         break;
 
       default:
-        $h1SayHello.innerText = "Select a valid language";
+        this.setState({
+          h1Text: "Select a valid language",
+        });
     }
   };
 
@@ -37,6 +47,9 @@ export class ClickTracker extends React.Component {
         <button id={3} onClick={this.handlerClicks}>
           Hola 🇪🇸
         </button>
+        <div>
+          <h1>{this.state.h1Text}</h1>
+        </div>
       </div>
     );
   }
