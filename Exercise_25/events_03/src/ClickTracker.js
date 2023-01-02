@@ -1,33 +1,33 @@
 import React from "react";
-//import { Ciao } from './Ciao';
+
+const $h1SayHello = document.querySelector("#h1");
 
 export class ClickTracker extends React.Component {
-  state = {
-    hasBeenClicked: false,
-  };
-
   handlerClicks = (event) => {
     let id = event.target.id;
-    let newH1 = document.createElement("h1");
-    const divButtonsContainer = document.querySelector(".container");
-
     //console.log(event);
 
-    if (id === "1") {
-      newH1.innerText = event.target.innerHTML;
-      divButtonsContainer.appendChild(newH1);
-    } else if (id === "2") {
-      newH1.innerText = event.target.innerHTML;
-      divButtonsContainer.appendChild(newH1);
-    } else if (id === "3") {
-      newH1.innerText = event.target.innerHTML;
-      divButtonsContainer.appendChild(newH1);
+    switch (id) {
+      case "1":
+        $h1SayHello.innerText = event.target.innerHTML;
+        break;
+
+      case "2":
+        $h1SayHello.innerText = event.target.innerHTML;
+        break;
+
+      case "3":
+        $h1SayHello.innerText = event.target.innerHTML;
+        break;
+
+      default:
+        $h1SayHello.innerText = "Select a valid language";
     }
   };
 
   render() {
     return (
-      <div className="container">
+      <div>
         <button id={1} onClick={this.handlerClicks}>
           Ciao 🇮🇹
         </button>
