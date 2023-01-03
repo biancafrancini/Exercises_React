@@ -3,27 +3,28 @@ import { Welcome } from "./Welcome";
 
 export class InteractiveWelcome extends React.Component {
   state = {
-    name: "",
+    inputName: "",
   };
 
   handlerInputOnChange = (e) => {
+    const name = e.target.name;
     const value = e.target.value;
 
     this.setState({
-      name: value,
+      [name]: value,
     });
   };
 
   render() {
     return (
-      <form>
+      <div>
         <input
           name="inputName"
-          value={this.state.name}
+          value={this.state.inputName}
           onChange={this.handlerInputOnChange}
         />
-        <Welcome name={this.state.name} />
-      </form>
+        <Welcome name={this.state.inputName} />
+      </div>
     );
   }
 }
