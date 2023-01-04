@@ -30,7 +30,7 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <form>
         <input
           name="username"
           type="input"
@@ -50,7 +50,7 @@ export class Login extends React.Component {
           onChange={this.handlerInputChanged}
         />
         <button name="button" onClick={this.onLogin} disabled={this.state.buttonDisabled}> Login </button>
-      </div>
+      </form>
     );
   }
 }
