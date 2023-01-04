@@ -36,5 +36,5 @@ the counter within the selected interval (and then update the state) */
 
 /* ITALIANO:
 In questo caso, non abbiamo bisogno di inizializzare l'intervallo all'interno del constructor.
-Tuttavia, l'inizializzazione di un valore iniziale, all'interno di un constructor, o state, è ancora necessaria per 
+Tuttavia, l'inizializzazione di un valore iniziale del counter, all'interno di un constructor, o state, è ancora necessaria per 
 poter incrementare il counter all'interno dell'intervallo di tempo indicato (e di conseguenza, aggiornare lo state). */
