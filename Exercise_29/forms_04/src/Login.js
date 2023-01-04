@@ -1,18 +1,25 @@
 import React from "react";
 
 export class Login extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-    username: "",
-    password: "",
-    remember: false,
-    buttonDisabled: true,
-  };
+      username: "",
+      password: "",
+      remember: false,
+      buttonDisabled: true,
+    };
 
-  this.onLogin = () => {
-    console.log(this.state);
-  };
+    this._state = {
+      username: "",
+      password: "",
+      remember: false,
+      buttonDisabled: true,
+    };
+
+    this.onLogin = () => {
+      console.log(this.state);
+    };
   }
 
   handlerInputChanged = (e) => {
@@ -28,9 +35,15 @@ export class Login extends React.Component {
     });
   };
 
+  resetButton = (e) => {
+    this.setState({
+      ...this._state,
+    });
+  };
+
   render() {
     return (
-      <div>
+      <form>
         <input
           name="username"
           type="input"
@@ -49,9 +62,15 @@ export class Login extends React.Component {
           value={this.state.remember}
           onChange={this.handlerInputChanged}
         />
-        <button name="button" onClick={this.onLogin} disabled={this.state.buttonDisabled}> Login </button>
-        <button name="button"> Reset </button>
-      </div>
+        <button name="button" type="submit" onClick={this.onLogin} disabled={this.state.buttonDisabled}>
+        Login
+        </button>
+        <br />
+        <br />
+        <button name="button" type="reset" onClick={this.resetButton}>
+          Reset
+        </button>
+      </form>
     );
   }
 }
