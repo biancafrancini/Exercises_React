@@ -44,7 +44,6 @@ export class Login extends React.Component {
   render() {
     return (
       <div>
-        <form>
           <input
             name="username"
             type="input"
@@ -75,7 +74,6 @@ export class Login extends React.Component {
           <button name="button" type="reset" onClick={this.resetButton}>
             Reset
           </button>
-        </form>
       </div>
     );
   }
