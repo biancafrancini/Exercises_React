@@ -1,18 +1,18 @@
 import React from "react";
 
 export class Login extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-    username: "",
-    password: "",
-    remember: false,
-    buttonDisabled: true,
-  };
+      username: "",
+      password: "",
+      remember: false,
+      buttonDisabled: true,
+    };
 
-  this.onLogin = () => {
-    console.log(this.state);
-  };
+    this.onLogin = () => {
+      console.log(this.state);
+    };
   }
 
   handlerInputChanged = (e) => {
@@ -30,27 +30,33 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <form>
-        <input
-          name="username"
-          type="input"
-          value={this.state.username}
-          onChange={this.handlerInputChanged}
-        />
-        <input
-          name="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.handlerInputChanged}
-        />
-        <input
-          name="remember"
-          type="checkbox"
-          value={this.state.remember}
-          onChange={this.handlerInputChanged}
-        />
-        <button name="button" onClick={this.onLogin} disabled={this.state.buttonDisabled}> Login </button>
-      </form>
+      <div>
+        <form>
+          <input
+            name="username"
+            type="input"
+            value={this.state.username}
+            onChange={this.handlerInputChanged}
+          />
+          <input
+            name="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handlerInputChanged}
+          />
+          <input
+            name="remember"
+            type="checkbox"
+            value={this.state.remember}
+            onChange={this.handlerInputChanged}/>
+          <button
+            name="button"
+            onClick={this.onLogin}
+            disabled={this.state.buttonDisabled}>
+            Login
+          </button>
+        </form>
+      </div>
     );
   }
 }
