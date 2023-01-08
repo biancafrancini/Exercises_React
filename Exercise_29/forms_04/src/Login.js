@@ -27,7 +27,7 @@ export class Login extends React.Component {
     const value = e.target.value;
     const checkedValue = e.target.checked;
 
-    console.log(e);
+    //console.log(e);
     this.setState({
       [name]: value,
       [checkedValue]: true,
@@ -44,36 +44,37 @@ export class Login extends React.Component {
   render() {
     return (
       <div>
-          <input
-            name="username"
-            type="input"
-            value={this.state.username}
-            onChange={this.handlerInputChanged}
-          />
-          <input
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handlerInputChanged}
-          />
-          <input
-            name="remember"
-            type="checkbox"
-            value={this.state.remember}
-            onChange={this.handlerInputChanged}
-          />
-          <button
-            name="button"
-            type="submit"
-            onClick={this.onLogin}
-            disabled={this.state.buttonDisabled}>
-            Login
-          </button>
-          <br />
-          <br />
-          <button name="button" type="reset" onClick={this.resetButton}>
-            Reset
-          </button>
+        <input
+          name="username"
+          type="input"
+          value={this.state.username}
+          onChange={this.handlerInputChanged}
+        />
+        <input
+          name="password"
+          type="password"
+          value={this.state.password}
+          onChange={this.handlerInputChanged}
+        />
+        <input
+          name="remember"
+          type="checkbox"
+          value={this.state.remember}
+          onChange={this.handlerInputChanged}
+        />
+        <button
+          name="button"
+          type="submit"
+          onClick={this.onLogin}
+          disabled={this.state.buttonDisabled}
+        >
+          Login
+        </button>
+        <br />
+        <br />
+        <button name="button" type="reset" onClick={this.resetButton}>
+          Reset
+        </button>
       </div>
     );
   }
