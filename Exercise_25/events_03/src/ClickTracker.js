@@ -1,39 +1,13 @@
 import React from "react";
 
 export class ClickTracker extends React.Component {
-  state = {
-    h1Text: "",
-  };
 
   handlerClicks = (event) => {
-    let id = event.target.id;
     //console.log(event);
+    const updatedH1 = document.querySelector("#h1Text");
+    updatedH1.innerHTML = event.target.innerHTML;
 
-    switch (id) {
-      case "1":
-        this.setState({
-          h1Text: <h1>{event.target.innerHTML}</h1>,
-        });
-        break;
-
-      case "2":
-        this.setState({
-          h1Text: <h1>{event.target.innerHTML}</h1>,
-        });
-        break;
-
-      case "3":
-        this.setState({
-          h1Text: <h1>{event.target.innerHTML}</h1>,
-        });
-        break;
-
-      default:
-        this.setState({
-          h1Text: "Select a valid language",
-        });
-    }
-  };
+  }
 
   render() {
     return (
@@ -48,7 +22,7 @@ export class ClickTracker extends React.Component {
           Hola 🇪🇸
         </button>
         <div>
-          <h1>{this.state.h1Text}</h1>
+          <h1 id="h1Text"></h1>
         </div>
       </div>
     );
