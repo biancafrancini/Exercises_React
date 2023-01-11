@@ -1,10 +1,6 @@
 import React from "react";
 import { Age } from "./Age";
 
-const ageDetails = {
-  _age: 20,
-};
-
 export class Welcome extends React.Component {
   render() {
     return (
@@ -13,8 +9,8 @@ export class Welcome extends React.Component {
           Welcome, <strong>{this.props.name}</strong>! 😃
         </p>
         {this.props.name === "John" &&
-          ageDetails._age > 18 &&
-          ageDetails._age < 65 && <Age age={ageDetails._age} />}
+          this.props.age > 18 &&
+          this.props.age < 65 && <Age age={this.props.age} />}
       </div>
     );
   }
