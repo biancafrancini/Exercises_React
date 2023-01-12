@@ -24,13 +24,12 @@ export class TodoList extends React.Component {
   handleAddButton = () => { 
     const inputTag = document.querySelector("#newTodo");
 
-    if(inputTag.value){
-    const newLi = document.createElement("li");
-    const newItemTotheList = document.createTextNode(inputTag.value);
-    newLi.appendChild(newItemTotheList);
-    document.querySelector(".todo-list").appendChild(newLi);
+      if(inputTag.value){
+        this.state.items.push(inputTag.value);
     
-    this.state.items.push(inputTag.value);
+        this.setState({
+          items: this.state.items,
+        })
 
     //to clear the input field once the new item has been added to the todo list
     inputTag.value = this.inputValueState; 
