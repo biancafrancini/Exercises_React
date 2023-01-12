@@ -2,7 +2,8 @@ import React from "react";
 
 export class TodoList extends React.Component {
   
-    itemState = [
+    state = {
+      items: [
         "Have breakfast",
         "Study",
         "Have lunch",
@@ -10,31 +11,31 @@ export class TodoList extends React.Component {
         "Go to the doctor",
         "Order food for the whole week",
         "Have dinner",
-      ];
+      ],
+    };
 
     inputValueState = "";
 
   getTheItem = () =>{
-    const getItemList = this.itemState.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
+    const getItemList = this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
     return getItemList;
   }
 
  
   handleAddButton = () => { 
     const inputTag = document.querySelector("#newTodo");
+ 
     if(inputTag.value){
-    const ulItemsList = document.querySelector(".todo-list")
-    const newLi = document.createElement("li");
-    const newItemTotheList = document.createTextNode(inputTag.value);
-    newLi.appendChild(newItemTotheList);
-    ulItemsList.appendChild(newLi);
-    
-    this.itemState.push(inputTag.value);
+      this.state.items.push(inputTag.value);
+  
+      this.setState({
+        items: this.state.items,
+      })
 
     //to clear the input field once the new item has been added to the todo list
     inputTag.value = this.inputValueState; 
 
-    //console.log(this.itemState); 
+    //console.log(this.state.items); 
    } 
   }
 
