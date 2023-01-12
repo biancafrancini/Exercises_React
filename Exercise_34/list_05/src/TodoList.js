@@ -2,7 +2,8 @@ import React from "react";
 
 export class TodoList extends React.Component {
   
-    itemState = [
+    state = {
+      items: [
         "Have breakfast",
         "Study",
         "Have lunch",
@@ -10,31 +11,39 @@ export class TodoList extends React.Component {
         "Go to the doctor",
         "Order food for the whole week",
         "Have dinner",
-      ];
+      ]};
 
     inputValueState = "";
 
   getTheItem = () =>{
-    const getItemList = this.itemState.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
-    return getItemList;
+    const getItemsList = this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
+    return getItemsList;
   }
 
  
   handleAddButton = () => { 
     const inputTag = document.querySelector("#newTodo");
-    const ulItemsList = document.querySelector(".todo-list")
+
+    if(inputTag.value){
     const newLi = document.createElement("li");
     const newItemTotheList = document.createTextNode(inputTag.value);
     newLi.appendChild(newItemTotheList);
-    ulItemsList.appendChild(newLi);
+    document.querySelector(".todo-list").appendChild(newLi);
     
-    this.itemState.push(inputTag.value);
+    this.state.items.push(inputTag.value);
 
     //to clear the input field once the new item has been added to the todo list
     inputTag.value = this.inputValueState; 
 
-    //console.log(this.itemState); 
+    //console.log(this.state.items); 
    } 
+  }
+  
+  //to reset the whole todo list when the user click on the "Reset" button 
+   resetList = () => {
+    document.querySelector(".todo-list").innerHTML = "";
+   }
+
 
   render() {
     return (
@@ -46,8 +55,9 @@ export class TodoList extends React.Component {
           id="newTodo"
           name="newTodo"
           type="input"
-          placeholder="Add a new item... "/>
+          placeholder="Add a new item..."/>
         <button type="submit" onClick={this.handleAddButton}>ADD</button>
+        <button type="reset" onClick={this.resetList}>Reset</button>
       </div>
     );
   }
