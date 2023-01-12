@@ -2,34 +2,34 @@ import React from "react";
 
 export class TodoList extends React.Component {
   
-    itemState = [
-        "Have breakfast",
-        "Study ",
-        "Have lunch",
-        "Do workouts",
-        "Go to the doctor",
-        "Order food for the whole week",
-        "Have dinner",
-      ];
+  state = {
+    items: [
+      "Have breakfast",
+      "Study",
+      "Have lunch",
+      "Do workouts",
+      "Go to the doctor",
+      "Order food for the whole week",
+      "Have dinner",
+    ],
+  };
 
   getTheItem = () =>{
-    const getItemList = this.itemState.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
+    const getItemList = this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
     return getItemList;
   }
 
   handleAddButton = () => { 
-    const inputValue = document.querySelector("#newTodo").value;
+    const inputTag = document.querySelector("#newTodo");
 
-    if(inputValue){
-    const ulItemsList = document.querySelector(".todo-list")
-    const newLi = document.createElement("li");
-    const newItemTotheList = document.createTextNode(inputValue);
-    newLi.appendChild(newItemTotheList);
-    ulItemsList.appendChild(newLi);
+      if(inputTag.value){
+        this.state.items.push(inputTag.value);
     
-    this.itemState.push(inputValue);
+        this.setState({
+          items: this.state.items,
+        })
 
-    console.log(this.itemState); 
+    //console.log(this.state.items); 
    } 
   }
 
