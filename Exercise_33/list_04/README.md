@@ -1,3 +1,7 @@
+# Exercise_33
+
+Modify the TodoList component so that the input clears every time a Todo is added to the items array.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
