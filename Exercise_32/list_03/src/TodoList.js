@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 export class TodoList extends React.Component {
   
     itemState = [
@@ -32,7 +30,7 @@ export class TodoList extends React.Component {
     this.itemState.push(inputValue);
 
     console.log(this.itemState); 
-   }
+   } 
   }
 
 
