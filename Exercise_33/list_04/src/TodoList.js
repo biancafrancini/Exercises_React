@@ -22,6 +22,7 @@ export class TodoList extends React.Component {
  
   handleAddButton = () => { 
     const inputTag = document.querySelector("#newTodo");
+    if(inputTag.value){
     const ulItemsList = document.querySelector(".todo-list")
     const newLi = document.createElement("li");
     const newItemTotheList = document.createTextNode(inputTag.value);
@@ -35,6 +36,7 @@ export class TodoList extends React.Component {
 
     //console.log(this.itemState); 
    } 
+  }
 
   render() {
     return (
