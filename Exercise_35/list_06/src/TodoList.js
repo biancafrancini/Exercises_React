@@ -11,13 +11,15 @@ export class TodoList extends React.Component {
         "Go to the doctor",
         "Order food for the whole week",
         "Have dinner",
-      ]};
+      ],
+      inputValueState: "",
+    };
 
-    inputValueState = "";
+    
 
  
     getItemList = () => {
-      return this.state.items.map((statesItem, index) => <div key={statesItem}><li key={index + statesItem}>{statesItem}</li><button>Remove item</button></div>);
+      return this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}<button id={index} className={statesItem} type="button" onClick={this.handleRemoveItem}>Remove item</button></li>);
     }
 
     handleAddButton = () => { 
@@ -31,15 +33,22 @@ export class TodoList extends React.Component {
     })
 
     //to clear the input field once the new item has been added to the todo list
-    inputTag.value = this.inputValueState; 
-
-    //console.log(this.itemState); 
+    inputTag.value = this.state.inputValueState; 
    } 
   }
   
   //to reset the whole todo list when the user click on the "Reset" button 
    resetList = () => {
     document.querySelector(".todo-list").innerHTML = "";
+   }
+
+   //to remove an item from the todo list when the user click on the "Remove item" button
+   handleRemoveItem = (e) => {
+      const newList = this.state.items.filter((item) => this.state.items.indexOf(item) !== this.state.items.indexOf(`${e.target.className}`));
+
+      this.setState({
+        items: newList,
+      }) 
    }
 
 
