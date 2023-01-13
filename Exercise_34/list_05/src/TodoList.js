@@ -16,7 +16,7 @@ export class TodoList extends React.Component {
   };
 
   getTheItem = () => {
-    const getItemsList = this.state.items.map((statesItem, index) => (<li key={index + statesItem}>{statesItem}</li>));
+    const getItemsList = this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
     return getItemsList;
   };
 
