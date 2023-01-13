@@ -1,7 +1,6 @@
 import React from "react";
 
 export class TodoList extends React.Component {
-  
   state = {
     items: [
       "Have breakfast",
@@ -14,38 +13,36 @@ export class TodoList extends React.Component {
     ],
   };
 
-  getTheItem = () =>{
+  getTheItem = () => {
     const getItemList = this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
     return getItemList;
-  }
+  };
 
-  handleAddButton = () => { 
+  handleAddButton = () => {
     const inputTag = document.querySelector("#newTodo");
 
-      if(inputTag.value){
-        this.state.items.push(inputTag.value);
-    
-        this.setState({
-          items: this.state.items,
-        })
+    if (inputTag.value) {
+      this.state.items.push(inputTag.value);
 
-    //console.log(this.state.items); 
-   } 
-  }
-
+      this.setState({
+        items: this.state.items,
+      });
+    }
+  };
 
   render() {
     return (
       <div>
-        <ul className="todo-list">
-          {this.getTheItem()}
-        </ul>
+        <ul className="todo-list">{this.getTheItem()}</ul>
         <input
           id="newTodo"
           name="newTodo"
           type="input"
-          placeholder="Add a new item... "/>
-        <button type="submit" onClick={this.handleAddButton}>ADD</button>
+          placeholder="Add a new item..."
+        />
+        <button type="submit" onClick={this.handleAddButton}>
+          ADD
+        </button>
       </div>
     );
   }
