@@ -1,0 +1,7 @@
+.welcome {
+    background-color: rgb(181, 238, 202);
+    border: 2px solid green;
+    width: 400px;
+    padding: 10px;
+    font-family: fantasy;
+}
