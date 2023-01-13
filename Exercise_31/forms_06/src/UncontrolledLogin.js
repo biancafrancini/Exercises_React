@@ -38,7 +38,7 @@ export class UncontrolledLogin extends React.Component {
   }
 }
 
-/* SOLUTION with only autoFocus attribute:
+/* SOLUTION with autoFocus prop:
 
 export class UncontrolledLogin extends React.Component {
 
