@@ -15,7 +15,8 @@ export class UncontrolledLogin extends React.Component {
       username,
       password,
       remember,
-      loginButton: username && password ? loginButton === false : loginButton === true,
+      loginButton:
+        username && password ? loginButton === false : loginButton === true,
     });
   };
 
@@ -51,10 +52,15 @@ export class UncontrolledLogin extends React.Component {
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
     const remember = e.target.elements.remember.checked;
-    const button = username && password ? e.target[3].disabled : !e.target[3].disabled;
+    const loginButton = e.target.elements.loginButton.disabled;
 
     console.log(e);
-    console.log({ username, password, remember, button});
+    console.log({ 
+      username, 
+      password, 
+      remember, 
+      loginButton: 
+        username && password ? loginButton === false : loginButton === true,});
   };
 
   render() {
@@ -64,7 +70,7 @@ export class UncontrolledLogin extends React.Component {
           <input name="username" type="input" autoFocus/>
           <input name="password" type="password" />
           <input name="remember" type="checkbox" />
-          <button type="submit">
+          <button name="loginButton" type="submit">
             Login
           </button>
           <br />
