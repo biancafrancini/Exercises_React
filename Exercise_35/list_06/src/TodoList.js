@@ -46,7 +46,9 @@ export class TodoList extends React.Component {
 
   //to reset the whole todo list when the user click on the "Reset" button
   resetList = () => {
-    document.querySelector(".todo-list").innerHTML = "";
+    this.setState({
+      items: [],
+    })
   };
 
   //to remove an item from the todo list when the user click on the "Remove item" button
