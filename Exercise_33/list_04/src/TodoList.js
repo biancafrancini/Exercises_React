@@ -16,8 +16,7 @@ export class TodoList extends React.Component {
   };
 
   getTheItem = () => {
-    const getItemList = this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
-    return getItemList;
+    return this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
   };
 
   handleAddButton = () => {
