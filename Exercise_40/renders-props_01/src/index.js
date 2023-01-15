@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
-import { App } from './App';
+import { LogicTodos } from './LogicTodos';
 
-const todosComponent = <App />;
+const todosComponent = <LogicTodos />;
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 root.render(todosComponent);
 

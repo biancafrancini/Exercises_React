@@ -1,7 +1,7 @@
 import React from "react";
 import { TodoList } from "./TodoList";
 
-export class App extends React.Component {
+export class LogicTodos extends React.Component {
 
   state = {
     items: [
