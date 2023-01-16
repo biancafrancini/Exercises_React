@@ -18,8 +18,4 @@ export class Welcome extends React.Component {
       );
   }
 }
-
-Welcome.defaultProps = {
-  name: <strong>You</strong>,
-};
 */
