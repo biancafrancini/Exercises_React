@@ -1,3 +1,7 @@
+# Exercise_45 
+
+What happens if the numbers prop of the Sum component is not set? How can you set a default value for this prop?
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
