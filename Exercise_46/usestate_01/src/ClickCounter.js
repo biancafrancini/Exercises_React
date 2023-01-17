@@ -8,7 +8,8 @@ export function ClickCounter({ count = 0 }) {
     setCounter((current) => current + 1);
   }
 
-  /* **************************************************************************** 
+  
+ /* **************************************************************************** 
   Extra: Adding a button to reduce the counter. 
   If the count is going to be negative, the count will remain at 0.*/
 
