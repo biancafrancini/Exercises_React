@@ -1,9 +1,9 @@
 import React from "react";
 
-export function Welcome({ name }) {
+export function Welcome(props) {
   return (
     <div className="welcome">
-      <p>Welcome, <strong>{name}</strong>! 😃</p>
+      <p>Welcome, <strong>{props.name}</strong>! 😃</p>
     </div>
   );
 }
