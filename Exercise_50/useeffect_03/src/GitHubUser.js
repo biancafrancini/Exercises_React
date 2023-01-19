@@ -8,7 +8,7 @@ export function GitHubUser({ username }) {
     const json = await response.json();
 
     setData(json);
-    console.log(json);
+    //console.log(json);
   }
 
   useEffect(() => {
