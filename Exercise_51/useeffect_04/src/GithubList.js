@@ -1,22 +1,38 @@
-import React, {useState, useEffect} from 'react';
-import { GitHubUser } from './GitHubUser';
+import React, { useState } from "react";
+import { GitHubUser } from "./GitHubUser";
 
-export function GithubList({usersDetails = []}){
-    const [users, setUsers] = useState(usersDetails);
+export function GithubList({ userList = [] }) {
+  const [users, setUsers] = useState(userList);
+  const [inputValue, setInputValue] = useState("");
 
-    const handleSubmittedUsers = (event) => {
-        const inputValue = event.target.value;
+  const handleInputChanges = (e) => {
+    setInputValue(e.target.value);
+  };
 
-        setUsers(users.push(inputValue));
+  const handleSubmission = (e) => {
+    e.preventDefault();
+    setUsers((_user) => _user.concat(inputValue));
+  };
 
-        console.log(users);
-    }
-    
-    return (
-        <div>
-            <input name="username" placeholder="Please, insert your username..." onChange={handleSubmittedUsers} />
-            <button type="submit">Submit</button>
-         </div>
-    )
-
+  return (
+    <div className="container">
+        <div className="Current-users-list">
+        <h3>Current users:</h3>
+        <ul>{users.map(u => <li key={"user" + u}>{u}</li>)}</ul>
+        </div>
+      <form className="form-container">
+        <input
+          name="username"
+          value={inputValue}
+          placeholder="Please, insert your username..."
+          onChange={handleInputChanges}
+        />
+        <button type="submit" onClick={handleSubmission}>
+          Submit
+        </button>
+      </form>
+      <hr />
+      <ul>{users.map(profileUser => <li key={"userProfile" + profileUser}><GitHubUser username={profileUser} /><br /></li>)}</ul>
+    </div>
+  );
 }
