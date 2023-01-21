@@ -1,3 +1,7 @@
+# Exercise_55
+
+Modify the useGithubUser hook to return the function to fetch the data of a Github user, along with the data of the user and the error and loading states.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
