@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export function ClickCounter({count = 0,
   onCounterChange = (currentValue) => {
-    currentValue = currentValue
+    console.log(currentValue);
   },}) 
   { const [counter, setCounter] = useState(count);
 
