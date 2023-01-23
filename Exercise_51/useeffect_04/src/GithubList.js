@@ -18,7 +18,7 @@ export function GithubList({ userList = [] }) {
     <div className="container">
         <div className="Current-users-list">
         <h3>Current users:</h3>
-        <ul>{users.map(u => <li key={"user" + u}>{u}</li>)}</ul>
+        <ul>{users.map(currentUser => <li key={"user" + currentUser}>{currentUser}</li>)}</ul>
         </div>
       <form className="form-container">
         <input
