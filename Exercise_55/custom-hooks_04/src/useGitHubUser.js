@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-//Logic extracted from useEffect_03 to fetch a Github user's data and put it into a custom hook
+//Logic extracted from useEffect_03 to fetch Github user's data and put it into a custom hook
 export function useGitHubUser(user) {
   const [data, setData] = useState(user);
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,6 @@ export function useGitHubUser(user) {
       setData(json);
       setLoading(false);
       //console.log(json);
-      
     } catch (error) {
       setError(error);
       setData(null);
