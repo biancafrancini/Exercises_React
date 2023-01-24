@@ -18,7 +18,7 @@ export function GithubList({ userList = [] }) {
     <div className="container">
         <div className="Current-users-list">
         <h3>Current users:</h3>
-        <ul>{users.map(currentUser => <li key={"user" + currentUser}>{currentUser}</li>)}</ul>
+        <ul>{users.map((currentUser, index) => <li key={`user${index}` + currentUser}>{currentUser}</li>)}</ul>
         </div>
       <form className="form-container">
         <input
@@ -32,7 +32,7 @@ export function GithubList({ userList = [] }) {
         </button>
       </form>
       <hr />
-      <ul>{users.map(profileUser => <li key={"userProfile" + profileUser}><GitHubUser username={profileUser} /><br /></li>)}</ul>
+      <ul>{users.map((profileUser, index) => <li key={`profile-newUser-${index}`}><GitHubUser username={profileUser} /><br /></li>)}</ul>
     </div>
   );
 }
