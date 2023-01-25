@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function useCounter(count = 0) {
+function useCounter(count) {
   const [counter, setCounter] = useState(count);
 
   function handleIncrement() {
