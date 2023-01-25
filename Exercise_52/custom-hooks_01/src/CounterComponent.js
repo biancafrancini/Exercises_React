@@ -16,7 +16,7 @@ function useCounter(count) {
   }
 
   function handleReset() {
-    setCounter((current) => (current = 0));
+    setCounter((current) => (current = count));
   }
 
   return {
