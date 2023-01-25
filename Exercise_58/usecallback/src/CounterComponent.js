@@ -1,41 +1,30 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
-function useCounter(count) {
+export function CounterComponent({ count = 0 }) {
   const [counter, setCounter] = useState(count);
 
-  function handleIncrement() {
+  const handleIncrement = useCallback(() => {
     setCounter((current) => current + 1);
-  }
+  }, []);
 
-  function handleDecrement() {
+  const handleDecrement = useCallback(() => {
     if (counter <= 0) {
       setCounter((current) => (current = 0));
     } else {
       setCounter((current) => current - 1);
     }
-  }
+  }, [counter]);
 
-  function handleReset() {
+  const handleReset = useCallback(() => {
     setCounter((current) => (current = count));
-  }
-
-  return {
-    counter: counter,
-    increment: handleIncrement,
-    decrement: handleDecrement,
-    reset: handleReset,
-  };
-}
-
-export function CounterComponent({ count = 0 }) {
-  const { counter, increment, decrement, reset } = useCounter(count);
+  }, [count]);
 
   return (
     <div>
       <h1>Counter : {counter}</h1>
-      <button onClick={increment}>⇡ Increment counter ⇡ </button>
-      <button onClick={decrement}>⇣ Decrement counter ⇣</button>
-      <button onClick={reset}>Reset counter ↩︎</button>
+      <button onClick={handleIncrement}>⇡ Increment counter ⇡ </button>
+      <button onClick={handleDecrement}>⇣ Decrement counter ⇣</button>
+      <button onClick={handleReset}>Reset counter ↩︎</button>
     </div>
   );
 }
