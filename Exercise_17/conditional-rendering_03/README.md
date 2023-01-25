@@ -2,7 +2,6 @@
 
 Modify the Welcome component so that the Age component is rendered only if the age prop is greater than 18 and less than 65.
 
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
