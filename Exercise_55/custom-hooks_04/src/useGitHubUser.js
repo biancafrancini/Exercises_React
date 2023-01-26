@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
-//Logic extracted from useEffect_03 to fetch Github user's data and put it into a custom hook
 export function useGitHubUser(user) {
   const [data, setData] = useState(user);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   async function FetchGitHubUser(username) {
     setLoading(true);
@@ -14,12 +13,27 @@ export function useGitHubUser(user) {
       const response = await fetch(`https://api.github.com/users/${username}`);
       const json = await response.json();
 
+      if (!response.ok) {
+        throw new Error("Response Error", {
+          cause: {
+            response,
+          },
+        });
+      }
       setData(json);
       setLoading(false);
       //console.log(json);
     } catch (error) {
-      setError(error);
-      setData(null);
+      switch (error.cause.response?.status) {
+        case 403:
+          setError(true);
+          setData(null);
+          break;
+        case 404:
+          setError(true);
+          setData(null);
+          break;
+      }
     }
   }
 
@@ -33,4 +47,3 @@ export function useGitHubUser(user) {
     _error: error,
   };
 }
-//
