@@ -8,9 +8,9 @@ export function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Welcome />} />
+        <Route path="/" element={<Welcome name="Guys" />} />
         <Route path="counter" element={<ClickCounter />} />
-        <Route path="users/:username" element={<ShowGithubUser />} />
+        <Route path="/users/:username" element={<ShowGithubUser />} />
       </Routes>
     </div>
   );
