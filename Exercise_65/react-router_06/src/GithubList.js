@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, useParams, Outlet } from "react-router-dom";
 
 export function GithubList({ userList = [] }) {
   const [users, setUsers] = useState(userList);
   const [inputValue, setInputValue] = useState("");
+  const {username} = useParams();
 
   const handleInputChanges = (e) => {
     setInputValue(e.target.value);
@@ -32,7 +33,7 @@ export function GithubList({ userList = [] }) {
         </button>
       </form>
       <hr />
-      <Link to="newUser/:username">Show user details ⤵️</Link>
+      <Link to={`newUser/${username}`}>Show user details ⤵️</Link>
 
       <Outlet />
     </div>
