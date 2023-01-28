@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.routes-container {
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.routes-container a {
+  color: rgb(6, 69, 6);
+  font-size: 13px;
+  padding: 10px;
+}
+
+.routes-container a:hover {
+    color: rgb(117, 175, 29);
+}
+
+h1 {
+  text-align: center;
+}
