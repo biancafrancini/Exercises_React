@@ -4,9 +4,11 @@ import { ClickCounter } from "./ClickCounter";
 import { Welcome } from "./Welcome";
 import { ShowGithubUser } from "./ShowGithubUser";
 
+import "./App.css";
+
 export function App() {
   return (
-    <div>
+    <div className="routes-container">
       <Routes>
         <Route path="/" element={<Welcome name="Guys" />} />
         <Route path="counter" element={<ClickCounter />} />
