@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { Counter } from "./Counter";
 
-const $root = document.querySelector("#root");
+const counterCalculator = (
+  <Counter initialValue={0} incrementValue={2} intervalTime={1000} />
+);
 
-const counterCalculator = <Counter initialValue={0} incrementValue={2} intervalTime={1000}/>;
-
-ReactDOM.render(counterCalculator, $root);
+const root = ReactDOM.createRoot(document.querySelector("#root"));
+root.render(counterCalculator);
