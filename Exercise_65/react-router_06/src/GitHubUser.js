@@ -16,7 +16,7 @@ export function GitHubUser({ username }) {
   }, [username]);
 
   return (
-    <div>
+    <div className="users-details-space">
       <div><strong>ID</strong>: {data.id}</div>
       <div><strong>Username</strong>: {data.login ? data.login: "none"}</div>
       <div><strong>Location</strong>: {data.location ? data.location : "none"}</div>

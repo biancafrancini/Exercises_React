@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GitHubUser } from "./GitHubUser";
+import { Link, Outlet } from "react-router-dom";
 
 export function GithubList({ userList = [] }) {
   const [users, setUsers] = useState(userList);
@@ -16,7 +16,7 @@ export function GithubList({ userList = [] }) {
 
   return (
     <div className="container">
-        <div className="Current-users-list">
+        <div className="current-users-list-space">
         <h3>Current users:</h3>
         <ul>{users.map((currentUser, index) => <li key={`user${index}` + currentUser}>{currentUser}</li>)}</ul>
         </div>
@@ -32,7 +32,9 @@ export function GithubList({ userList = [] }) {
         </button>
       </form>
       <hr />
-      <ul>{users.map((profileUser, index) => <li key={`profile-newUser-${index}`}><GitHubUser username={profileUser} /><br /></li>)}</ul>
+      <Link to="newUser/:username">Show user details ⤵️</Link>
+
+      <Outlet />
     </div>
   );
 }
