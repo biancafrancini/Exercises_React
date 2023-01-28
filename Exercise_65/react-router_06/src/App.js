@@ -4,7 +4,7 @@ import { ClickCounter } from "./ClickCounter";
 import { Welcome } from "./Welcome";
 import { FirstPage } from "./FirstPage";
 import { ShowGithubUser } from "./ShowGithubUser";
-import { GithubList } from "./GithubList";
+import { GithubUserList } from "./GithubUserList";
 import { GitHubUser } from "./GitHubUser";
 
 import "./App.css";
@@ -24,7 +24,7 @@ export function App() {
           <Route path="/" element={<FirstPage />} />
           <Route path="/:username" element={<Welcome />} />
           <Route path="/counter/:username" element={<ClickCounter />} />
-          <Route path="/users" element={<GithubList />}>
+          <Route path="/users" element={<GithubUserList />}>
             <Route path="newUser/:username" element={<ShowGithubUser />} />
             <Route path="newUser" element={<GitHubUser />}/>
           </Route>

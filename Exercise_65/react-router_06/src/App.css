@@ -26,8 +26,8 @@ nav a {
   padding: 0 15px;
 }
 
-nav a:hover{
-    color: rgb(117, 175, 29);
+nav a:hover {
+  color: rgb(117, 175, 29);
 }
 
 .routes-container {
@@ -42,23 +42,23 @@ nav a:hover{
 }
 
 .routes-container a:hover {
-    color: rgb(117, 175, 29);
+  color: rgb(117, 175, 29);
 }
 
 h1 {
   text-align: center;
 }
 
-.current-users-list-space{
+.add-users-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.current-users-list-space ul{
- margin-left: -60px;
+.current-users-list-space ul {
+  margin-left: -35px;
 }
 
-.users-details-space{
+.users-details-space {
   margin-top: 20px;
 }
