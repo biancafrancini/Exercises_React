@@ -10,8 +10,8 @@ export function App() {
   return (
     <div className="routes-container">
       <Routes>
-        <Route path="/" element={<Welcome name="Guys" />} />
-        <Route path="counter" element={<ClickCounter />} />
+        <Route path="/:username" element={<Welcome />} />
+        <Route path="/counter/:username" element={<ClickCounter />} />
         <Route path="users/:username" element={<ShowGithubUser />} />
       </Routes>
     </div>
