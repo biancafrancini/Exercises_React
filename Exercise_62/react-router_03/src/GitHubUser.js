@@ -18,8 +18,8 @@ export function GitHubUser({ username }) {
   return (
     <div>
       <div><strong>ID</strong>: {data.id}</div>
-      <div><strong>Username</strong>: {data.login}</div>
-      <div><strong>Location</strong>: {data.location}</div>
+      <div><strong>Username</strong>: {data.login ? data.login: "none"}</div>
+      <div><strong>Location</strong>: {data.location ? data.location : "none"}</div>
     </div>
   );
 }
