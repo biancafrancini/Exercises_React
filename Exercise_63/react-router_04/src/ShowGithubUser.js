@@ -8,7 +8,7 @@ export function ShowGithubUser() {
     <div>
       <GitHubUser username={username} />
       <br />
-      <Link to="/"> Go back to Homepage</Link>
+      <Link to={`/${username}`}> Go back to Homepage</Link>
     </div>
   );
 }

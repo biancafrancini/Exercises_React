@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export function ClickCounter({ count = 0 }) {
   const [counter, setCounter] = useState(count);
+  const { username } = useParams();
 
   function handlerIncrementOnClick() {
     setCounter((current) => current + 1);
@@ -34,7 +35,7 @@ export function ClickCounter({ count = 0 }) {
       <br />
       <br />
       <div>
-        <Link to="/">Go back to the Homepage </Link>
+      <Link to={`/${username}`}> Go back to Homepage</Link>
       </div>
     </div>
   );
