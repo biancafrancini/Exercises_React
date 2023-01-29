@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import {GithubList} from "./GithubList" ;
-
-const gitHubListComponent = <GithubList userList={["Clara", "George"]}/>
+import {GithubUserList} from "./GithubUserList" ;
 
 const root= ReactDOM.createRoot(document.querySelector("#root"));
-root.render(gitHubListComponent)
+root.render(<GithubUserList userList={["Clara", "George"]}/>)

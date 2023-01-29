@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GitHubUser } from "./GitHubUser";
 
-export function GithubList({ userList = [] }) {
+export function GithubUserList({ userList = [] }) {
   const [users, setUsers] = useState(userList);
   const [inputValue, setInputValue] = useState("");
 
