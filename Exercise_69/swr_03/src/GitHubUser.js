@@ -10,12 +10,12 @@ const fetcher = (url) =>
   });
 
 function useGitHubUser(username) {
-  const { data, error, mutate } = useSWR(username ? 
-    `https://api.github.com/users/${username}` : null,
-    fetcher,
+  const { data, error, mutate } = useSWR(
+    username ? `https://api.github.com/users/${username}` : null,
+    fetcher
   );
 
-  function handleRefreshData(){
+  function handleRefreshData() {
     mutate();
   }
 
@@ -23,16 +23,18 @@ function useGitHubUser(username) {
     users: data,
     isError: error,
     reFetchData: handleRefreshData,
-  }
+  };
 }
 
 export function GitHubUser({ username }) {
-  const {users, isError, reFetchData} = useGitHubUser(username)
+  const { users, isError, reFetchData } = useGitHubUser(username);
 
   return (
     <div>
       {!users && !isError && <h3>Loading.... 🫣</h3>}
-      {!users && !isError && !username && <h3>Sorry, there are no data for your request 🧐</h3>}
+      {!users && !isError && !username && (
+        <h3>Sorry, there are no data for your request 🧐</h3>
+      )}
       {users && !isError && (
         <div>
           <div>
@@ -45,6 +47,7 @@ export function GitHubUser({ username }) {
             <strong>Location</strong>:
             {users.location ? users.location : " unknown"}
           </div>
+          <br />
           <button onClick={reFetchData}>reFetchData data manually</button>
         </div>
       )}
