@@ -9,33 +9,45 @@ const fetcher = (url) =>
     return res.json();
   });
 
-export function GitHubUser({ username }) {
+function useGitHubUser(username) {
   const { data, error } = useSWR(
     `https://api.github.com/users/${username}`,
     fetcher
   );
 
+  return {
+    users: data,
+    isError: error,
+  }
+}
+
+export function GitHubUser({ username }) {
+  const {users, isError} = useGitHubUser(username)
+
   return (
     <div>
-      {!data && !error && <h3>Loading....</h3>}
-      {data && !error && (
+      {!users && !isError && <h3>Loading....</h3>}
+      {users && !isError && (
         <div>
           <div>
-            <strong>ID</strong>: {data.id}
+            <strong>ID</strong>: {users.id}
           </div>
           <div>
-            <strong>Username</strong>: {data.login}
+            <strong>Username</strong>: {users.login}
           </div>
           <div>
             <strong>Location</strong>:
-            {data.location ? data.location : " unknown"}
+            {users.location ? users.location : " unknown"}
           </div>
         </div>
       )}
-      {error && <h3>There has been an error..</h3>}
+      {isError && <h3>There has been an error..</h3>}
     </div>
   );
 }
+
+
+
 
 /* Code extracted from Exercise Custom-hooks_04 :
 
