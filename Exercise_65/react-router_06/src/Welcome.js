@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 export function Welcome(props) {
-  const {username} = useParams();
+  const { username } = useParams();
   return (
     <div className="welcome">
       <h1>Welcome {username}! 😃</h1>
