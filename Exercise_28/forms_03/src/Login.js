@@ -16,11 +16,9 @@ export class Login extends React.Component {
   }
 
   handlerInputChanged = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    const checkedValue = e.target.checked;
+    const { name, value, checkedValue } = e.target;
 
-    console.log(e);
+    //console.log(e);
     this.setState({
       [name]: value,
       [checkedValue]: true,
