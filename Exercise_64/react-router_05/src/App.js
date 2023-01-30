@@ -10,13 +10,6 @@ import "./App.css";
 export function App() {
   return (
     <div>
-      {/* <div className="nav-container">
-        <nav>
-          <Link to="/"> Homepage </Link>
-          <Link to="counter"> Your personal Counter </Link>
-          <Link to="users/:username"> Users Profile</Link>
-        </nav>
-  </div>*/}
       <div className="routes-container">
         <Routes>
           <Route path="/" element={<FirstPage />} />
