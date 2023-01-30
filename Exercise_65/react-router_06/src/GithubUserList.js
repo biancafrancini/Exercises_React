@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams, Outlet } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export function GithubUserList({ userList = [] }) {
   const [users, setUsers] = useState(userList);
@@ -33,9 +33,7 @@ export function GithubUserList({ userList = [] }) {
         </button>
       </form>
       <br />
-      <Link to={`newUser/${username}`}>Show user details ⤵️</Link>
-
-      <Outlet />
+      <Link to={`${username}`}>Show user details ⤵️</Link>
     </div>
   );
 }

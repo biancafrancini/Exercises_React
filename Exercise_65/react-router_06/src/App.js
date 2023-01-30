@@ -24,7 +24,7 @@ export function App() {
           <Route path="/:username" element={<Welcome />} />
           <Route path="/counter/:username" element={<ClickCounter />} />
           <Route path="/users" element={<GithubUserList />}>
-            <Route path="newUser/:username" element={<ShowGithubUser />} />
+            <Route path=":username" element={<ShowGithubUser />} />
           </Route>
           <Route path="*" element={<div><h3>Page not found. Sorry! 😞</h3>
               <Link to="/"> Go back to Homepage </Link></div>}

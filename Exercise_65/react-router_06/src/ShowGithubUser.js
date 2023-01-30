@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { GitHubUser } from "./GitHubUser";
 
 export function ShowGithubUser() {
