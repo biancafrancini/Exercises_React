@@ -1,7 +1,5 @@
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { NavbarLinks } from "./NavbarLinks";
-
 
 export function Welcome() {
   const {username} = useParams();
