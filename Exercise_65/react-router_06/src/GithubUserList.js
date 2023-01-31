@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
 
 export function GithubUserList({ userList = [] }) {
