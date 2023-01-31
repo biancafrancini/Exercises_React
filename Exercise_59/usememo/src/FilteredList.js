@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 
 export function FilteredList() {
   const users = [
@@ -8,7 +8,7 @@ export function FilteredList() {
     { id: 4, name: "Leyla", age: 13 },
     { id: 5, name: "Carlo", age: 19 },
   ];
-  const [user, setUser] = useState(users);
+  const [user] = useState(users);
 
   const filteredArray = useMemo(() => {
     return user.filter((item) => item.age > 18);
@@ -23,7 +23,6 @@ export function FilteredList() {
           <strong> Age: </strong>{person.age}
           <br/>
         </div>
-
       ))}
     </div>
   );
