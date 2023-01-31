@@ -10,7 +10,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
-
   padding: 20px 15px;
   margin: 0;
 }
@@ -31,7 +30,6 @@ nav a:hover {
 }
 
 .routes-container {
-  padding: 30px 15px;
   text-align: center;
 }
 

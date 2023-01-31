@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 
 export function GithubUserList({ userList = [] }) {
   const [users, setUsers] = useState(userList);
   const [inputValue, setInputValue] = useState("");
-  const {username} = useParams();
+  const { username } = useParams();
 
   const handleInputChanges = (e) => {
     setInputValue(e.target.value);
@@ -17,10 +17,14 @@ export function GithubUserList({ userList = [] }) {
 
   return (
     <div className="add-users-container">
-        <div className="current-users-list-space">
+      <div className="current-users-list-space">
         <h3>Current users:</h3>
-        <ul>{users.map((currentUser, index) => <li key={`user${index}` + currentUser}>{currentUser}</li>)}</ul>
-        </div>
+        <ul>
+          {users.map((currentUser, index) => (
+            <li key={`user${index}` + currentUser}>{currentUser}</li>
+          ))}
+        </ul>
+      </div>
       <form className="form-container">
         <input
           name="username"
@@ -34,6 +38,8 @@ export function GithubUserList({ userList = [] }) {
       </form>
       <br />
       <Link to={`${username}`}>Show user details ⤵️</Link>
+
+      <Outlet />
     </div>
   );
 }
