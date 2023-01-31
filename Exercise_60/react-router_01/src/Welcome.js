@@ -1,5 +1,3 @@
-import React from "react";
-
 export function Welcome(props) {
   return (
     <div className="welcome">
