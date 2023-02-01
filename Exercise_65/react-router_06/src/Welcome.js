@@ -8,7 +8,7 @@ export function Welcome(props) {
       <NavbarLinks />
       <h1>Welcome {username}! 😃</h1>
       <Link to={`/counter/${username}`}>Start the Counter now ⏳ </Link> or
-      <Link to={`/users/${username}`}> Find out your userProfile </Link>
+      <Link to={`/users`}> Find out your userProfile </Link>
     </div>
   );
 }
