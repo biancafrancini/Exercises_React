@@ -37,7 +37,7 @@ export function GithubUserList({ userList = [] }) {
         </button>
       </form>
       <br />
-      <Link to={`${username}`}>Show user details ⤵️</Link>
+      <Link to={`/users/${username}`}>Show user details ⤵️</Link>
 
       <Outlet />
     </div>

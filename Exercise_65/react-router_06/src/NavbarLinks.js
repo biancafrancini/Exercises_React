@@ -7,7 +7,7 @@ export function NavbarLinks() {
       <nav>
         <Link to={`/${username}`}> Homepage </Link>
         <Link to={`/counter/${username}`}> Your personal Counter </Link>
-        <Link to={`/users/${username}`}> Users Profile</Link>
+        <Link to={`/users`}> Users Profile</Link>
       </nav>
     </div>
   );
