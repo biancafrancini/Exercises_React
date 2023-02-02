@@ -12,7 +12,7 @@ export function App() {
     <nav className="nav-container ">
       <Link to="/"> Homepage </Link>
       <Link to="/counter"> Your personal Counter </Link>
-      <Link to="/users"> Users Profile</Link>
+      <Link to="/users"> Add Users </Link>
     </nav>
     <div className="routes-container">
       <Routes>

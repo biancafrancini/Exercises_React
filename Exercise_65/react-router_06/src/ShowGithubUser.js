@@ -1,17 +1,13 @@
-import { Link, useParams} from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { GitHubUser } from "./GitHubUser";
 
 export function ShowGithubUser() {
   const { username } = useParams();
   return (
     <div>
-    <h5>Insert your name (or nickname) instead of "/undefined" into the path 🔝 and press enter. 
-    <br />
-    See what happens next.. ⤵️ 😏</h5>
+    <h4>User details</h4> ⬇ 
       <GitHubUser username={username} />
-      <br />
-      <Link to="/"> Go back to Homepage</Link>
-      
+      <br />   
     </div>
   );
 }
