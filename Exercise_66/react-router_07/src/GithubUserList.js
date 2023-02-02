@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link, useParams, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export function GithubUserList({ userList = [] }) {
   const [users, setUsers] = useState(userList);
   const [inputValue, setInputValue] = useState("");
-  const { username } = useParams();
+  const navigate = useNavigate();
 
   const handleInputChanges = (e) => {
     setInputValue(e.target.value);
@@ -13,12 +13,15 @@ export function GithubUserList({ userList = [] }) {
   const handleSubmission = (e) => {
     e.preventDefault();
     setUsers((_user) => _user.concat(inputValue));
+    if (inputValue) {
+      navigate(`${inputValue}`);
+    }
   };
 
   return (
     <div className="add-users-container">
       <div className="current-users-list-space">
-        <h3>Add users:</h3>
+        <h3>Users 👤 </h3>
         <ul>
           {users.map((currentUser, index) => (
             <li key={`user${index}` + currentUser}>{currentUser}</li>
@@ -29,17 +32,18 @@ export function GithubUserList({ userList = [] }) {
         <input
           name="username"
           value={inputValue}
-          placeholder="username"
+          placeholder="Please, insert username..."
           onChange={handleInputChanges}
         />
         <button type="submit" onClick={handleSubmission}>
-          Submit
+          Add
         </button>
       </form>
       <br />
-      <Link to={`newUser/${username}`}>Show user details ⤵️</Link>
 
       <Outlet />
+
+      <Link to="/"> Go back to Homepage</Link>
     </div>
   );
 }
