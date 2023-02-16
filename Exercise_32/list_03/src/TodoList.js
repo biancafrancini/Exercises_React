@@ -22,10 +22,8 @@ export class TodoList extends React.Component {
     const inputTag = document.querySelector("#newTodo");
 
     if (inputTag.value) {
-      this.state.items.push(inputTag.value);
-
       this.setState({
-        items: this.state.items,
+        items: this.state.items.concat(inputTag.value),
       });
     }
   };
