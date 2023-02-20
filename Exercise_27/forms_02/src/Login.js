@@ -8,14 +8,11 @@ export class Login extends React.Component {
   };
 
   handlerInputChanged = (e) => {
-    //console.log(e);
-    const { name, value} = e.target;
+    const { name, value } = e.target;
 
     this.setState({
       [name]: e.target.type === "checkbox" ? e.target.checked : value,
     });
-
-    console.log(this.state)
   };
 
   render() {
