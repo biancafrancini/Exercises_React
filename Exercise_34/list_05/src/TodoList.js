@@ -12,24 +12,27 @@ export class TodoList extends React.Component {
       "Have dinner",
     ],
 
-    inputValueState: "",
+    inputValue: "",
   };
 
   getTheItem = () => {
     return this.state.items.map((statesItem, index) => <li key={index + statesItem}>{statesItem}</li>);
   };
 
+  handleInput = (e) => {
+    this.setState({
+      ...this.state,
+      inputValue: e.target.value,
+    });
+  };
+
   handleAddButton = () => {
-    const inputTag = document.querySelector("#newTodo");
-
-    if (inputTag.value) {
-      
+    if (this.state.inputValue !== "") {
       this.setState({
-        items: this.state.items.concat(inputTag.value),
+        items: this.state.items.concat(this.state.inputValue),
+        //to clear the input field once the new item has been added to the todo list
+        inputValue: "",
       });
-
-      //to clear the input field once the new item has been added to the todo list
-      inputTag.value = this.state.inputValueState;
     }
   };
 
@@ -43,16 +46,17 @@ export class TodoList extends React.Component {
   render() {
     return (
       <div>
-        <ul className="todo-list">{this.getTheItem()}</ul>
-        <input
-          id="newTodo"
-          name="newTodo"
-          type="input"
-          placeholder="Add a new item..."
-        />
-        <button type="submit" onClick={this.handleAddButton}>
-          ADD
-        </button>
+      <ul className="todo-list">{this.getTheItem()}</ul>
+      <input
+        name="newTodo"
+        type="input"
+        value={this.state.inputValue}
+        placeholder="Add a new item..."
+        onInput={this.handleInput}
+      />
+      <button type="submit" onClick={this.handleAddButton}>
+        ADD
+      </button>
         <button type="reset" onClick={this.resetList}>
           Reset
         </button>
