@@ -11,6 +11,8 @@ export class TodoList extends React.Component {
       "Order food for the whole week",
       "Have dinner",
     ],
+
+    inputValue: "",
   };
 
   getTheItem = () => {
@@ -18,12 +20,17 @@ export class TodoList extends React.Component {
     
   };
 
-  handleAddButton = () => {
-    const inputTag = document.querySelector("#newTodo");
+  handleInput = (e) => {
+    this.setState({
+      ...this.state,
+      inputValue: e.target.value,
+    });
+  };
 
-    if (inputTag.value) {
+  handleAddButton = () => {
+    if (this.state.inputValue !== "") {
       this.setState({
-        items: this.state.items.concat(inputTag.value),
+        items: this.state.items.concat(this.state.inputValue),
       });
     }
   };
@@ -33,10 +40,11 @@ export class TodoList extends React.Component {
       <div>
         <ul className="todo-list">{this.getTheItem()}</ul>
         <input
-          id="newTodo"
           name="newTodo"
           type="input"
+          value={this.state.inputValue}
           placeholder="Add a new item..."
+          onInput={this.handleInput}
         />
         <button type="submit" onClick={this.handleAddButton}>
           ADD
