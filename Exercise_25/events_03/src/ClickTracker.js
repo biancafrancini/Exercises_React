@@ -1,13 +1,17 @@
 import React from "react";
 
 export class ClickTracker extends React.Component {
+  state = {
+    h1Text: "",
+  };
 
   handlerClicks = (event) => {
     //console.log(event);
-    const updatedH1 = document.querySelector("#h1Text");
-    updatedH1.innerHTML = event.target.innerHTML;
 
-  }
+    this.setState({
+      h1Text: event.target.innerHTML,
+    });
+  };
 
   render() {
     return (
@@ -22,7 +26,7 @@ export class ClickTracker extends React.Component {
           Hola 🇪🇸
         </button>
         <div>
-          <h1 id="h1Text"></h1>
+          <h1>{this.state.h1Text}</h1>
         </div>
       </div>
     );
