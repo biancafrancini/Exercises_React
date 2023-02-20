@@ -16,15 +16,12 @@ export class Login extends React.Component {
   }
 
   handlerInputChanged = (e) => {
-    const { name, value} = e.target;
+    const { name, value } = e.target;
 
-    //console.log(e);
     this.setState({
       [name]: e.target.type === "checkbox" ? e.target.checked : value,
       buttonDisabled: this.state.username && this.state.password ? false : true,
     });
-
-    console.log(this.state);
   };
 
   render() {
@@ -47,11 +44,13 @@ export class Login extends React.Component {
             name="remember"
             type="checkbox"
             value={this.state.remember}
-            onChange={this.handlerInputChanged}/>
+            onChange={this.handlerInputChanged}
+          />
           <button
             name="button"
             onClick={this.onLogin}
-            disabled={this.state.buttonDisabled}>
+            disabled={this.state.buttonDisabled}
+          >
             Login
           </button>
         </form>
