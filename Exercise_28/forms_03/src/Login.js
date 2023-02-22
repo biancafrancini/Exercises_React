@@ -16,10 +16,10 @@ export class Login extends React.Component {
   }
 
   handlerInputChanged = (e) => {
-    const { name, value } = e.target;
+    const { name, type, value, checked } = e.target;
 
     this.setState({
-      [name]: e.target.type === "checkbox" ? e.target.checked : value,
+      [name]: type === "checkbox" ? checked : value,
       buttonDisabled: this.state.username && this.state.password ? false : true,
     });
   };
