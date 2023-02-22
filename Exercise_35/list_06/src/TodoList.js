@@ -28,7 +28,6 @@ export class TodoList extends React.Component {
 
   handleInput = (e) => {
     this.setState({
-      ...this.state,
       inputValue: e.target.value,
     });
   };
@@ -58,7 +57,6 @@ export class TodoList extends React.Component {
     newList.splice(selectedIndex, 1);
 
     this.setState({
-      ...this.state,
       items: newList,
     });
   };
