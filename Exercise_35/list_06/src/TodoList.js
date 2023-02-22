@@ -11,35 +11,35 @@ export class TodoList extends React.Component {
       "Order food for the whole week",
       "Have dinner",
     ],
-    inputValueState: "",
+
+    inputValue: "",
   };
 
   getItemList = () => {
     return this.state.items.map((statesItem, index) => (
       <li key={index + statesItem}>
         {statesItem}
-        <button
-          id={index}
-          className={statesItem}
-          type="button"
-          onClick={this.handleRemoveItem}>
+        <button type="button" onClick={this.handleRemoveItem}>
           Remove item
         </button>
       </li>
     ));
   };
 
+  handleInput = (e) => {
+    this.setState({
+      ...this.state,
+      inputValue: e.target.value,
+    });
+  };
+
   handleAddButton = () => {
-    const inputTag = document.querySelector("#newTodo");
-
-    if (inputTag.value) {
-   
+    if (this.state.inputValue !== "") {
       this.setState({
-        items: this.state.items.concat(inputTag.value),
+        items: this.state.items.concat(this.state.inputValue),
+        //to clear the input field once the new item has been added to the todo list
+        inputValue: "",
       });
-
-      //to clear the input field once the new item has been added to the todo list
-      inputTag.value = this.state.inputValueState;
     }
   };
 
@@ -47,17 +47,18 @@ export class TodoList extends React.Component {
   resetList = () => {
     this.setState({
       items: [],
-    })
+    });
   };
 
   //to remove an item from the todo list when the user click on the "Remove item" button
-  handleRemoveItem = (e) => {
-    const newList = this.state.items.filter(
-      (item) =>
-        this.state.items.indexOf(item) !== this.state.items.indexOf(`${e.target.className}`)
-    );
+  handleRemoveItem = (i) => {
+    const selectedIndex = this.state.items.findIndex((item) => item === i);
+
+    const newList = [...this.state.items];
+    newList.splice(selectedIndex, 1);
 
     this.setState({
+      ...this.state,
       items: newList,
     });
   };
@@ -67,10 +68,11 @@ export class TodoList extends React.Component {
       <div>
         <ul className="todo-list">{this.getItemList()}</ul>
         <input
-          id="newTodo"
           name="newTodo"
           type="input"
+          value={this.state.inputValue}
           placeholder="Add a new item..."
+          onInput={this.handleInput}
         />
         <button type="submit" onClick={this.handleAddButton}>
           ADD
